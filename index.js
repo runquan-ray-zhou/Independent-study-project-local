@@ -45,12 +45,14 @@ console.log("Example 4:", averageTemp);
 // 5. Calculate the highest temperature.
 
 const highestTemp = temperaturesFahrenheit.reduce((acc, cur) => Math.max(acc, cur));// Here, again no initialValue is assigned.
+// Math.max will return the higher value after comparing the two parameters.  This return value will be acc in next iteration.
 
 console.log("Example 5:", `${highestTemp} is the highest temperature.`);
 
 // 6. Calculate the lowest temperature.
 
 const lowestTemp = temperaturesFahrenheit.reduce((acc, cur) => Math.min(acc, cur));
+// Math.min will return the lower value after comparing the two parameters.  This return value will be acc in next iteration.
 
 console.log("Example 6:", `${lowestTemp} is the lowest temperature.`);
 
@@ -59,6 +61,9 @@ console.log("Example 6:", `${lowestTemp} is the lowest temperature.`);
 const mapArray = [1, 2, 3];
 
 const mapMimic = mapArray.reduce((acc, cur) => [...acc, cur * 10], []);// Here, the initialValue is an array.
+// First iteration --->[10]
+// Second iteration -->[10, 2 * 10] A new array is formed with contents from last iteration spread.
+// Third iteration --->[10, 20, 3 * 10]
 
 console.log("Example 7:", mapMimic);
 
@@ -75,10 +80,10 @@ console.log("Example 8:", filterMimic);
 // 9. Removing duplicates from array
 
 const uniqueFruitArray = fruitArray.reduce((acc, cur) => {
-    if (!acc.includes(cur)) {
-        acc.push(cur);
+    if (!acc.includes(cur)) { // Check if current array include the element.
+        acc.push(cur);        // If not present, then will push element into array.
     }
-    return acc;
+    return acc;               // Return array as acc for next iteration.
 }, []);
 
 console.log("Example 9:", uniqueFruitArray)
