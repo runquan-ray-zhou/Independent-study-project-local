@@ -14,7 +14,6 @@ Part of the 'Higher Order Function' class, the reduce method takes in two parame
 
 ```js
 
-array.reduce(callbackFn)
 array.reduce(callbackFn, initialValue)
 
 ```
@@ -54,34 +53,39 @@ const initialValue = 0;
 ```js
 const values = [3, 5, 1, 4, 2];
 ```
-3. The `reduce` method is initialized and called on the array `values`.  The final result from the reduce process is assigned to the variable `total`.  In this case, `reduce` has 2 parameters: `initialValue` and the callback function.  This callback function has 2 parameters: `accumulator` represented as `acc`, and `currentValue` represented as `item`.  The return from the callback function is the result of adding the `accumulator` to the `currentValue`.
+3. The `reduce` method is initialized and called on the array `values`.  In this code, `reduce` has 2 parameters: `callbackFn` and the `initialValue`.  This `callbackFn` has 2 parameters: `accumulator` represented as `acc`, and `currentValue` represented as `item`.  The return from the `callbackFn` is the result of adding the `accumulator` to the `currentValue`.  The final result from the reduce process is assigned to the variable `total`.
 
 ```js
 const total = values.reduce((acc, item) => { return acc + item }, initialValue);
 ```
 
-4. On the first iteration of the array, because `initialValue` was assigned the value of 0, `acc` is assigned the value of 0.  `item` is assigned the value of the first element in the array, which is the number 3.  The callback function is then called, and 0 (the current `accumulator` value) is added to 3(the current element), resulting in 3.  This value will be return as the `accumulator` or `acc` for the next iteration.
+4. On the first iteration of the array, because `initialValue` was assigned the value of 0, `acc` is assigned the value of 0.  `item` is assigned the value of the first element in the array, which is the number 3.  The `callbackFn` is then called, and 0 (the current `accumulator` value) is added to 3(the current element), resulting in 3.  This value will be return as the `accumulator` or `acc` for the next iteration.
 
 ```js
-const total = values.reduce((acc, item) => { return 0 + 3 }, 0); //Return 3
+values.reduce((acc, item) => { return 0 + 3 }, 0); //Return 3
 ```
 
 5. On the next iteration of the array, `acc` will be assigned the returned value from the previous iteration, which is the number 3. The callback function is then called, and 3 (the current `accumulator` value) is added to 5(the current element), resulting in 8.  This value will be return as the `accumulator` or `acc` for the next iteration.
 
 ```js       
-const total = values.reduce((acc, item) => { return 3 + 5 }, 0); //Return 8
+values.reduce((acc, item) => { return 3 + 5 }, 0); //Return 8
 ```
 
 6. Repeat step 5 until all elements of the `values` array have been iterated on.  The final value returned will be assigned to the variable `total`, which is the number 15.
 
 ```js       
-const total = values.reduce((acc, item) => { return 8 + 1 }, 0); //Return 9
+values.reduce((acc, item) => { return 8 + 1 }, 0); //Return 9
 //Next iteration
-const total = values.reduce((acc, item) => { return 9 + 4 }, 0); //Return 13
+values.reduce((acc, item) => { return 9 + 4 }, 0); //Return 13
 //Next iteration
-const total = values.reduce((acc, item) => { return 13 + 2 }, 0); //Return 15
-//All elements have been called on. Final return value is assigned to total.
-const total = 15;
+values.reduce((acc, item) => { return 13 + 2 }, 0); //Return 15
+//All elements have been called on. 
+```
+
+7. Final return value returned from the reduce method is assigned to the variable `total`.
+
+```js
+const total = 15
 ```
 
 ## Big O Evaluation
@@ -91,10 +95,10 @@ const total = 15;
 The time complexity of the reduce method is linear, `O(n)`, where `n` is the length of the array. For each element in the array, the method iterates over it only once. The reduce method is conceptually equivalent to a `for...of` loop. As the size of `n` increases, representing the length of the array, the number of operations also increases at the same rate, resulting in a linear relationship.
 
 ```js
-function reduce(array, callback function, initialValue) {
+function reduce(array, callbackFn, initialValue) {
   let accumulator = initialValue; // 1
   for (let currentValue of array) { // a 'for of' loop over the entire length of the array --> n
-    accumulator = callback function(accumulator, currentValue); // 1
+    accumulator = callbackFn(accumulator, currentValue); // 1
   }
   return accumulator;// 1
 }
@@ -140,7 +144,7 @@ The `initialValue` does not have to be a `number`, it can be an `array`, `object
 
 `reduce()` iterates from left to right of the array.  If you want to start from the back and iterate towards the beginning, or from right to left.  You can use `reduceRight()`.
 
-You can store whatever information you need to in the accumulator. Just remember to always return a value, otherwise `undefined` will replace your accumulator and might cause some frustrating confusion.
+You can store whatever information you need in the accumulator. Just remember to always return a value, otherwise `undefined` will replace your accumulator and might cause some frustrating confusion.
 
 ## Citations / References
 
