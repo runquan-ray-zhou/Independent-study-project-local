@@ -4,7 +4,7 @@
 
 ## Introduction
 
-`Reduce` is an `Array Method` and a `Higher Order Function` in Javascript. As an array method, when called on an array, reduce iterates over the elements in the array and reduce them into a single value, hence the name 'reduce'.  Every time it iterates over an element in the array, a callback function is called, and a variety of operations are executed on the parameters to get the desired result.  The reduce method is useful because of its versatility and ability to reduce the amount of coding. 
+`Reduce` is an native `Array Method` and a `Higher Order Function` in Javascript. As an array method, when called on an array, reduce iterates over the elements in the array and reduce them into a single value, hence the name 'reduce'.  Every time it iterates over an element in the array, a callback function is called, and a variety of operations are executed on the parameters to get the desired result.  The reduce method is useful because of its versatility and ability to reduce the amount of coding. 
 
 ## Method Description
 
@@ -30,8 +30,8 @@ array.reduce((accumulator, currentValue, currentIndex, array), initialValue)
 - The `callback function` have 4 parameters.
 
  <br> 2. `accumulator` is the return value from the previous iteration. This is `required`.
- <br> 3. `currentValue` is the current element the callback function is iterating over. This is `required`.
- <br> 4. `currentIndex` is the index of the element the callback function is iterating over. This is `optional`.
+ <br> 3. `currentValue` is the current element reduce is iterating over on. This is `required`.
+ <br> 4. `currentIndex` is the index of the element reduce is iterating over on. This is `optional`.
  <br> 5. `array` is the current array. This is `optional`.
 
 - These five values make up the parameters to the reduce method.
@@ -116,7 +116,7 @@ The space complexity of the reduce method is constant, `O(1)`, because only the 
 
 ## Use Cases
 
-The reason why the reduce method is so versatile because it can mimic other array methods and also produce valuable results based on the callback function given.  Below are some of the uses `reduce` have.
+The reduce method is very versatile, because it can mimic other array methods and also produce valuable results based on the callback function given.  Below are some of the uses `reduce` have.
 
 - Give the total cost of items in a shopping cart.
 
@@ -151,6 +151,10 @@ You can store whatever information you need in the accumulator. Just remember to
 [ECMAscript 2024 Language Specification - Array reduce() method](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduce)
 
 [Eloquent Javascript - Higher Order Functions](https://eloquentjavascript.net/05_higher_order.html)
+
+[Freecodecamp - How to use Javascript's Array Reduce Method](https://www.freecodecamp.org/news/how-to-use-javascript-array-reduce-method/)
+
+[Freecodecamp - How the JavaScript reduce and reduceRight Methods Work](https://www.freecodecamp.org/news/how-reduce-reduceright-works-javascript/)
 
 [GeeksForGeeks - Array reduce() method](https://www.geeksforgeeks.org/javascript-array-reduce-method/?ref=lbp)
 
