@@ -62,7 +62,7 @@ const mapArray = [1, 2, 3];
 
 const mapMimic = mapArray.reduce((acc, cur) => [...acc, cur * 10], []);// Here, the initialValue is an array.
 // First iteration --->[10]
-// Second iteration -->[10, 2 * 10] A new array contain elements from last iteration is formed with spread.
+// Second iteration -->[10, 2 * 10] A new array containing elements from last iteration is formed with spread.
 // Third iteration --->[10, 20, 3 * 10]
 
 console.log("Example 7:", mapMimic);
@@ -71,8 +71,8 @@ console.log("Example 7:", mapMimic);
 
 const filterArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const filterMimic = filterArray.reduce((acc, cur) => {
-    return cur % 2 === 0 ? [...acc, cur] : acc;
+const filterMimic = filterArray.reduce((acc, cur, index) => { // Here, we use index as a parameter.
+    return cur % 2 === 0 && index > 3 ? [...acc, cur] : acc;
 }, [])
 
 console.log("Example 8:", filterMimic);
