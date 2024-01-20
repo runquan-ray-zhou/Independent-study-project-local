@@ -4,7 +4,7 @@
 
 ## Introduction
 
-`Reduce` is an `Array Method` and a `Higher Order Function` in Javascript. As an array method, when called on an array, reduce iterates over the elements in the array and reduce them into a single value, hence the name 'reduce'.  Every time it iterates over an element, a callback function is called and inside the callback function, a variety of operations using the parameters will be performed to get the desired result.  The reduce method is useful because of its versatility and ability to reduce the amount of coding. 
+`Reduce` is an `Array Method` and a `Higher Order Function` in Javascript. As an array method, when called on an array, reduce iterates over the elements in the array and reduce them into a single value, hence the name 'reduce'.  Every time it iterates over an element in the array, a callback function is called, and a variety of operations are executed on the parameters to get the desired result.  The reduce method is useful because of its versatility and ability to reduce the amount of coding. 
 
 ## Method Description
 
@@ -25,14 +25,14 @@ array.reduce(callbackFn, initialValue)
 array.reduce((accumulator, currentValue, currentIndex, array), initialValue)
 
 ```
-`initialValue`. This is `optional`.  If supplied, it will be assigned as the first `accumulator` value in the callback function.  If not supplied, the first element of the array will be used as the initial `accumulator` parameter.
+<br> 1. `initialValue`. This is `optional`.  If supplied, its value will be assigned to the first `accumulator` value in the callback function.  If not supplied, the first element of the array will be assigned as the initial `accumulator` parameter.
 
-- The `callback function`, or sometimes referred to as the `reducer`, and its parameters.
+- The `callback function` have 4 parameters.
 
- <br> `accumulator` is the return value from the previous iteration. This is `required`.
- <br> `currentValue` is the current element the callback function is iterating over. This is `required`.
- <br> `currentIndex` is the index of the element the callback function is iterating over. This is `optional`.
- <br> `array` is the current array. This is `optional`.
+ <br> 2. `accumulator` is the return value from the previous iteration. This is `required`.
+ <br> 3. `currentValue` is the current element the callback function is iterating over. This is `required`.
+ <br> 4. `currentIndex` is the index of the element the callback function is iterating over. This is `optional`.
+ <br> 5. `array` is the current array. This is `optional`.
 
 - These five values make up the parameters to the reduce method.
 
@@ -53,7 +53,7 @@ const initialValue = 0;
 ```js
 const values = [3, 5, 1, 4, 2];
 ```
-3. The `reduce` method is initialized and called on the array `values`.  In this code, `reduce` has 2 parameters: `callbackFn` and the `initialValue`.  This `callbackFn` has 2 parameters: `accumulator` represented as `acc`, and `currentValue` represented as `item`.  The return from the `callbackFn` is the result of adding the `accumulator` to the `currentValue`.  The final result from the reduce process is assigned to the variable `total`.
+3. The `reduce` method is initialized and applied on the array `values`.  In the following line of code, `reduce` has 2 parameters: `callbackFn` and the `initialValue`.  This `callbackFn` has 2 parameters: `accumulator` represented as `acc`, and `currentValue` represented as `item`.  The return from the `callbackFn` is the result of adding the `accumulator` to the `currentValue`.
 
 ```js
 const total = values.reduce((acc, item) => { return acc + item }, initialValue);
@@ -71,7 +71,7 @@ values.reduce((acc, item) => { return 0 + 3 }, 0); //Return 3
 values.reduce((acc, item) => { return 3 + 5 }, 0); //Return 8
 ```
 
-6. Repeat step 5 until all elements of the `values` array have been iterated on.  The final value returned will be assigned to the variable `total`, which is the number 15.
+6. Repeat step 5 until all elements of the `values` array have been iterated over on.  The final value returned will be assigned to the variable `total`, which is the number 15.
 
 ```js       
 values.reduce((acc, item) => { return 8 + 1 }, 0); //Return 9
@@ -92,15 +92,15 @@ const total = 15
 
 ### Time Complexity
 
-The time complexity of the reduce method is linear, `O(n)`, where `n` is the length of the array. For each element in the array, the method iterates over it only once. The reduce method is conceptually equivalent to a `for...of` loop. As the size of `n` increases, representing the length of the array, the number of operations also increases at the same rate, resulting in a linear relationship.
+The time complexity of the reduce method is linear, `O(n)`, where `n` is the length of the array. For each element in the array, the method iterates over it only once. The reduce method is similar to a `for...of` loop. As the size of `n` increases, representing the length of the array, the number of operations also increases at the same rate, resulting in a linear relationship.
 
 ```js
 function reduce(array, callbackFn, initialValue) {
-  let accumulator = initialValue; // 1
-  for (let currentValue of array) { // a 'for of' loop over the entire length of the array --> n
-    accumulator = callbackFn(accumulator, currentValue); // 1
+  let accumulator = initialValue; // 1 operation
+  for (let currentValue of array) { // a 'for of' loop over the entire length of the array --> n operations
+    accumulator = callbackFn(accumulator, currentValue); // 1 operation
   }
-  return accumulator;// 1
+  return accumulator;// 1 operation
 }
 
 // n + 3
